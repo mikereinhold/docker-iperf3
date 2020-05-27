@@ -1,4 +1,4 @@
-[![Docker Stars](https://img.shields.io/docker/stars/mlabbe/iperf3.svg)](https://hub.docker.com/r/mlabbe/iperf3/) [![Docker Pulls](https://img.shields.io/docker/pulls/mlabbe/iperf3.svg)](https://hub.docker.com/r/mlabbe/iperf3/)
+[![Docker Stars](https://img.shields.io/docker/stars/mikereinhold/iperf3.svg)](https://hub.docker.com/r/mikereinhold/iperf3/) [![Docker Pulls](https://img.shields.io/docker/pulls/mikereinhold/iperf3.svg)](https://hub.docker.com/r/mikereinhold/iperf3/)
 
 # docker: iperf3
 
@@ -6,6 +6,10 @@ This is a Docker image to run the [iperf3](https://github.com/esnet/iperf) comma
 iPerf3 (iPerf v3) is a tool for active measurements of the maximum achievable bandwidth on IP networks.
 It supports tuning of various parameters related to timing, buffers and protocols (TCP, UDP, with IPv4 and IPv6).
 For each test it reports the bandwidth, loss, and other parameters.
+
+This is a slightly modified version of [mlabbe/iperf3](https://github.com/michellabbe/docker-iperf3) 
+that outputs condensed json on the server side instead of human readable text. 
+Container logs can then be collected, aggregated, and analyzed for a consolidated view of iperf results.
 
 ________________________________________
 ```sh
@@ -59,21 +63,19 @@ ________________________________________
 - Small image size
 - Small number of layers
 - Supports TCP and UDP
+- Outputs condensed JSON
 
-Total size of this image is only:
-
-[![](https://images.microbadger.com/badges/image/mlabbe/iperf3.svg)](https://microbadger.com/images/mlabbe/iperf3)
 
 ________________________________________
 ### Pulling from Docker hub
 If you want to obtain the image from Docker registry, you can use the following command:
 ```sh
-docker pull mlabbe/iperf3
+docker pull mikereinhold/iperf3
 ```
 ________________________________________
 ### Running the image
 In order to run the iperf server, use the following:
 ```sh
-docker run --restart=unless-stopped --name=iperf3 -d -p 5201:5201/tcp -p 5201:5201/udp mlabbe/iperf3
+docker run --restart=unless-stopped --name=iperf3 -d -p 5201:5201/tcp -p 5201:5201/udp mikereinhold/iperf3
 ```
 At that point, you can use your Docker server as an iperf3 server to begin testing your network.
