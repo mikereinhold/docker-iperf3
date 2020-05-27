@@ -65,9 +65,6 @@ ________________________________________
 - Supports TCP and UDP
 - Outputs condensed JSON
 
-Total size of this image is only:
-
-[![](https://images.microbadger.com/badges/image/mikereinhold/iperf3.svg)](https://microbadger.com/images/mikereinhold/iperf3)
 
 ________________________________________
 ### Pulling from Docker hub
